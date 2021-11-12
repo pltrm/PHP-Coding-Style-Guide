@@ -1486,7 +1486,7 @@ $items = ['Fridge', 'Toaster'];
 ```php
 $items = [
     'Fridge',
-    'Toaster',
+    'Toaster'
 ];
 $books = ['Harry Potter and the Cursed Child'];
 ```
