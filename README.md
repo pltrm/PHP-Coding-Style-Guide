@@ -135,24 +135,6 @@ use \Name\Space\ClassName;
 $className = ClassName::class;
 ```
 
-- Для конкатенации строк НЕОБХОДИМО использовать функцию [sprintf](http://php.net/manual/en/function.sprintf.php)
-
-Неправильный вариант:
-```php
-$type = 'error';
-$message = 'Some problems occured';
-
-$exception = 'Exception ('.$type.'): ' . $message;
-```
-
-Правильный вариант:
-```php
-$type = 'error';
-$message = 'Some problems occured';
-
-$exception = sprintf('Exception (%s): %s', $type, $message);
-```
-
 - НЕОБХОДИМО добавлять пробелы вокруг любого бинарного оператора (`==`, `&&`, ...)
 
 Неправильный вариант:
