@@ -610,6 +610,27 @@ class ClassName
 }
 ```
 
+- Трейты СЛЕДУЕТ записывать по одному на каждую строку, и ДОЛЖНО если их более 3-х
+
+```php
+<?php
+
+namespace Vendor\Package;
+
+use Vendor\Package\FirstTrait;
+use Vendor\Package\SecondTrait;
+use Vendor\Package\ThirdTrait;
+use Vendor\Package\FourthTrait;
+
+class ClassName
+{
+    use FirstTrait;
+    use SecondTrait;
+    use ThirdTrait;
+    use FourthTrait;
+}
+```
+
 - Если трейтов не более 3-х, ВОЗМОЖНО их перечисление через запятую, в одну строку
 
 ```php
