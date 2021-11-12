@@ -1488,7 +1488,14 @@ $items = [
     'Fridge',
     'Toaster'
 ];
+$items = [
+    'Fridge',
+    'Toaster',
+];
 $books = ['Harry Potter and the Cursed Child'];
+$books = [
+    'Harry Potter and the Cursed Child'
+];
 ```
 
 ## Требования к документированию кода <a name="doc"></a>
