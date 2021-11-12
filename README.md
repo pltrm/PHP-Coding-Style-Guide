@@ -1421,6 +1421,30 @@ $bookFilter = function(Book $book)
 $activeBooks  = array_filter($books, $bookFilter);
 ```
 
+- ВОЗМОЖНА инициализация многострочного массива, где каждый элемент ДОЛЖЕН быть на отдельной строке.
+
+Неправильный вариант:
+```php
+$books = [
+    'Harry Potter and the Cursed Child', 'War and Peace'
+];
+
+$items = [
+    'Fridge', 'Toaster',
+    'Laptop'
+];
+```
+
+Правильный вариант:
+```php
+$books = [
+    'Harry Potter and the Cursed Child',
+    'War and Peace'
+];
+
+$items = ['Fridge', 'Toaster', 'Laptop'];
+```
+
 ## Требования к документированию кода <a name="doc"></a>
 - Документацию РЕКОМЕНДУЕТСЯ писать на английском языке.
 - В файлах проекта НЕ ДОЛЖНО быть комментариев, которые автоматически сгенерировала IDE (например, `Created by ...`)
