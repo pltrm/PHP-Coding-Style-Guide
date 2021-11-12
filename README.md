@@ -1475,28 +1475,20 @@ $bookFilter = function(Book $book)
 $activeBooks  = array_filter($books, $bookFilter);
 ```
 
-- ВОЗМОЖНА инициализация многострочного массива, где каждый элемент ДОЛЖЕН быть на отдельной строке.
+- Если элементов массива > 1, каждый элемент массива ДОЛЖЕН быть на новой строке. НЕОБХОДИМО добавлять запятую в конце каждой строки многострочного массива, после последней НЕОБЯЗАТЕЛЬНО
 
 Неправильный вариант:
 ```php
-$books = [
-    'Harry Potter and the Cursed Child', 'War and Peace'
-];
-
-$items = [
-    'Fridge', 'Toaster',
-    'Laptop'
-];
+$items = ['Fridge', 'Toaster'];
 ```
 
 Правильный вариант:
 ```php
-$books = [
-    'Harry Potter and the Cursed Child',
-    'War and Peace'
+$items = [
+    'Fridge',
+    'Toaster',
 ];
-
-$items = ['Fridge', 'Toaster', 'Laptop'];
+$books = ['Harry Potter and the Cursed Child'];
 ```
 
 ## Требования к документированию кода <a name="doc"></a>
