@@ -594,6 +594,39 @@ class Order extends AbstractOrder implements
 }
 ```
 
+
+- Ключевое слово `use` которое используется внутри класса для импорта трейта ДОЛЖНО быть на следующей строке после открывающей скобки
+
+```php
+<?php
+
+namespace Vendor\Package;
+
+use Vendor\Package\FirstTrait;
+
+class ClassName
+{
+    use FirstTrait;
+}
+```
+
+- Если трейтов не более 3-х, ВОЗМОЖНО их перечисление через запятую, в одну строку
+
+```php
+<?php
+
+namespace Vendor\Package;
+
+use Vendor\Package\FirstTrait;
+use Vendor\Package\SecondTrait;
+use Vendor\Package\ThirdTrait;
+
+class ClassName
+{
+    use FirstTrait, SecondTrait, ThirdTrait;
+}
+```
+
 - Конструктор класса служит только для инициализации объекта и НЕ ДОЛЖЕН содержать бизнес логику
 
 Неправильный вариант:
