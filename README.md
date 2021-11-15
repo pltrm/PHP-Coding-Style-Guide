@@ -136,6 +136,24 @@ use \Name\Space\ClassName;
 $className = ClassName::class;
 ```
 
+- Для конкатенации строк НЕОБХОДИМО использовать фигурные скобки
+
+Неправильный вариант:
+```php
+$type = 'error';
+$message = 'Some problems occured';
+
+$exception = 'Exception ('.$type.'): ' . $message;
+```
+
+Правильный вариант:
+```php
+$type = 'error';
+$message = 'Some problems occured';
+
+$exception = "Exception ({$type}): {$message}";
+```
+
 - НЕОБХОДИМО добавлять пробелы вокруг любого бинарного оператора (`==`, `&&`, ...)
 
 Неправильный вариант:
