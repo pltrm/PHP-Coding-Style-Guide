@@ -1210,9 +1210,9 @@ function sendEmailNotificationIfRequired(Transaction $transaction)
 ```php
 function sendEmailNotificationIfRequired(Transaction $transaction)
 {
-	if ($transaction->type() != 'purchase') { // 1
-	    return false;
-	}
+    if ($transaction->type() != 'purchase') { // 1
+        return false;
+    }
 
     if (!$transaction->completed()) { // 2
         return false;
