@@ -465,6 +465,23 @@ class VendorLibrary
 }
 ```
 
+- Если трейтов не более 3-х, ВОЗМОЖНО их перечисление через запятую, в одну строку
+
+```php
+<?php
+
+namespace Vendor\Package;
+
+use Vendor\Package\FirstTrait;
+use Vendor\Package\SecondTrait;
+use Vendor\Package\ThirdTrait;
+
+class ClassName
+{
+    use FirstTrait, SecondTrait, ThirdTrait;
+}
+```
+
 - Конструктор класса служит только для инициализации объекта и НЕ ДОЛЖЕН содержать бизнес логику
 
 Неправильный вариант:
