@@ -417,7 +417,7 @@ class UserRepository
 
 Пример:
 ```php
-class AbstractValidator
+abstract class AbstractValidator
 {
     //
 }
@@ -427,7 +427,7 @@ class AbstractValidator
 
 Пример:
 ```php
-class ValidatorInterface
+interface ValidatorInterface
 {
     //
 }
@@ -437,7 +437,7 @@ class ValidatorInterface
 
 Пример:
 ```php
-class ValidationTrait
+trait ValidationTrait
 {
     //
 }
@@ -447,7 +447,7 @@ class ValidationTrait
 
 Пример:
 ```php
-class ValidatorException
+class ValidatorException extends \Exception
 {
     //
 }
