@@ -384,9 +384,7 @@ class UserRepository
 {
     /**
      * Returns some data
-     *
      * @param int $id
-     *
      * @return array
      */
     public function getData(int $id): array
@@ -489,17 +487,15 @@ class OrderDto
 {
     /**
      * Id of order
-     * 
      * @var integer
      */
-    private $id;
+    private int $id;
 
     /**
      * Title of order
-     *
      * @var string
      */
-    private $title;
+    private string $title;
 
     /**
      * OrderDto constructor.
@@ -525,21 +521,18 @@ class OrderDto
 {
     /**
      * Id of order
-     * 
      * @var integer
      */
-    private $id;
+    private int $id;
 
     /**
      * Title of order
-     *
      * @var string
      */
-    private $title;
+    private string $title;
 
     /**
      * OrderDto constructor.
-     *
      * @param int $id
      * @param string $title
      */
@@ -601,29 +594,21 @@ class Order
 ```php
 class Order
 {
-    /**
-     * @var BookRepository $bookRepository
-     */
-    protected $bookRepository;
+    protected BookRepository $bookRepository;
 
     /**
      * Count of books
-     *
      * @var integer $attemptCount
      */
-    protected $count;
+    protected int $count;
 
-    /**
-     * @var UserRepository $userRepository
-     */
-    protected $userRepository;
+    protected UserRepository $userRepository;
 
     /**
      * Price of book
-     *
      * @var float $price
      */
-    protected $price;
+    protected float $price;
 }
 ```
 
@@ -631,29 +616,21 @@ class Order
 ```php
 class Order
 {
-    /**
-     * @var BookRepository $bookRepository
-     */
-    protected $bookRepository;
-    
-    /**
-     * @var UserRepository $userRepository
-     */
-    protected $userRepository;
+    protected BookRepository $bookRepository;
+
+    protected UserRepository $userRepository;
 
     /**
      * Count of books
-     *
      * @var integer $attemptCount
      */
-    protected $count;
+    protected int $count;
 
     /**
      * Price of book
-     *
      * @var float $price
      */
-    protected $price;
+    protected float $price;
 }
 ```
 
@@ -666,14 +643,12 @@ class User
 {
     /**
      * Name of user
-     *
      * @var string
      */
-    private $userName;
+    private string $userName;
 
     /**
      * Name getter
-     *
      * @return string
      */
     public function getUserName(): string
@@ -689,14 +664,12 @@ class User
 {
     /**
      * Name of user
-     *
      * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * Name getter
-     *
      * @return string
      */
     public function getName(): string
@@ -712,10 +685,7 @@ class User
 ```php
 class Order
 {
-    /**
-     * @var integer
-     */
-    public $id;
+    public int $id;
 }
 ```
 
@@ -723,16 +693,11 @@ class Order
 ```php
 class Order
 {
-    /**
-     * @var integer
-     */
-    private $id;
+    private int $id;
 
     /**
      * Order id setter
-     *
      * @param int $id
-     *
      * @return Order
      */
     public function setId(int $id): Order
@@ -744,7 +709,6 @@ class Order
 
     /**
      * Order id getter
-     *
      * @return int
      */
     public function getId(): int
@@ -815,21 +779,13 @@ $this
 ```php
 class Order
 {
-    /**
-     * @var integer
-     */
-    private $id;
+    private int $id;
     
-    /**
-     * @var string
-     */
-    private $title;
+    private string $title;
 
     /**
      * Order id setter
-     *
      * @param int $id
-     *
      * @return Order
      */
     public function setId(int $id): Order
@@ -841,9 +797,7 @@ class Order
 
     /**
      * Order title setter
-     *
      * @param string $title
-     *
      * @return Order
      */
     public function setTitle(string $title): Order
@@ -861,14 +815,10 @@ class Order
 ```php
 class Order
 {
-    /**
-     * @var integer
-     */
-    private $id;
+    private int $id;
     
     /**
      * Order id getter
-     *
      * @return int
      */
     public function getId(): int
@@ -882,14 +832,10 @@ class Order
 ```php
 class Order
 {
-   /**
-    * @var integer
-    */
-   private $id;
+   private int $id;
    
    /**
     * Order id getter
-    *
     * @return int
     */
    public function getId(): int
@@ -999,19 +945,12 @@ use App\Repository\OrderRepository;
 
 class PaymentOrder
 {
-    /**
-     * @var PaymentService
-     */
-    private $paymentService;
+    private PaymentService $paymentService;
     
-    /**
-     * @var OrderRepository
-     */
-    private $orderRepository;
+    private OrderRepository $orderRepository;
 
     /**
      * PaymentOrder constructor.
-     * 
      * @param PaymentService $paymentService
      * @param OrderRepository $orderRepository
      */
@@ -1023,9 +962,7 @@ class PaymentOrder
 
     /**
      * @param int $id
-     * 
      * @return bool
-     * 
      * @throws OrderAlreadyPayed
      * @throws OrderException
      * @throws OrderNotFoundException
@@ -1173,17 +1110,15 @@ class Order
 {
     /**
      * Order id
-     * 
      * @var int
      */
-    private $id;
+    private int $id;
 
     /**
      * Order title
-     * 
      * @var string
      */
-    private $title;
+    private string $title;
 }
 ```
 
@@ -1195,11 +1130,8 @@ class Order
 {
     /**
      * Order id setter
-     * 
      * @param int $id
-     * 
      * @return Order
-     * 
      * @throws \InvalidArgumentException
      */
     public function setId(int $id): Order
@@ -1225,7 +1157,7 @@ class Order
      * Current balance
      * @var float
      */
-    private $balance;
+    private float $balance;
 
     /**
      * Sends money between addresses
@@ -1257,20 +1189,16 @@ class Order
 {
     /**
      * Current balance
-     * 
      * @var float
      */
-    private $balance;
+    private float $balance;
 
     /**
      * Sends money between addresses
-     * 
      * @param string $from
      * @param string $to
      * @param float $amount
-     * 
      * @return bool
-     * 
      * @throws \InvalidArgumentException
      * @throws InvalidAmountException
      */
