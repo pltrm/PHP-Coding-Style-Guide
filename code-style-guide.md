@@ -761,6 +761,9 @@ class Order
 ### Оформление методов <a name="methods"></a>
 
 - Список аргументов метода и функции ДОЛЖЕН придерживаться следующей последовательности: сначала идут аргументы в виде скалярных примитивов, потом массивы и уже потом зависимости в виде классов (интерфейсов)
+- Список аргументов метода и функции ДОЛЖЕН придерживаться следующих принципов:
+  1. обязательные аргументы ДОЛЖНЫ группироваться отдельно от необязательных и перечисляться первыми (PSR-2);
+  2. обязательные аргументы РЕКОМЕНДУЕТСЯ перечислять в следующей последовательности: объекты, массивы, скаляры, булевые аргументы, интерфейсы (инжектированные зависимости)
 
 Неправильный вариант:
 ```php
@@ -771,9 +774,10 @@ class PaymentOrder
      */
     public function __construct(
         array $orderItems,
-        PaymentService $paymentService,
-        int $oderId,
+        PaymentServiceInterface $paymentService,
+        int $orderId,
         int $userId,
+	LoggerInterface $logger = null,
         OrderRepository $orderRepository
     ) {
         //
@@ -789,11 +793,12 @@ class PaymentOrder
      * //
      */
     public function __construct(
-        int $oderId,
+	OrderRepository $orderRepository,
+	array $orderItems,
+        int $orderId,
         int $userId,
-        array $orderItems,
-        PaymentService $paymentService,
-        OrderRepository $orderRepository
+        PaymentServiceInterface $paymentService,
+	LoggerInterface $logger = null,
     ) {
         //
     }
