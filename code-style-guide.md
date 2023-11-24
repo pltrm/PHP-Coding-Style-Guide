@@ -384,8 +384,8 @@ class UserRepository
 {
     /**
      * Returns some data
-     * @param int $id
-     * @return array
+     * 
+     * @throws UserServiceException
      */
     public function getData(int $id): array
     {
@@ -487,21 +487,16 @@ class OrderDto
 {
     /**
      * Id of order
-     * @var integer
      */
     private int $id;
 
     /**
      * Title of order
-     * @var string
      */
     private string $title;
 
     /**
      * OrderDto constructor.
-     *
-     * @param int $id
-     * @param string $title
      */
     public function __construct(int $id, string $title)
     {
@@ -521,20 +516,16 @@ class OrderDto
 {
     /**
      * Id of order
-     * @var integer
      */
     private int $id;
 
     /**
      * Title of order
-     * @var string
      */
     private string $title;
 
     /**
      * OrderDto constructor.
-     * @param int $id
-     * @param string $title
      */
     public function __construct(int $id, string $title)
     {
@@ -598,7 +589,6 @@ class Order
 
     /**
      * Count of books
-     * @var integer $attemptCount
      */
     protected int $count;
 
@@ -606,7 +596,6 @@ class Order
 
     /**
      * Price of book
-     * @var float $price
      */
     protected float $price;
 }
@@ -622,13 +611,11 @@ class Order
 
     /**
      * Count of books
-     * @var integer $attemptCount
      */
     protected int $count;
 
     /**
      * Price of book
-     * @var float $price
      */
     protected float $price;
 }
@@ -643,13 +630,11 @@ class User
 {
     /**
      * Name of user
-     * @var string
      */
     private string $userName;
 
     /**
      * Name getter
-     * @return string
      */
     public function getUserName(): string
     {
@@ -664,13 +649,11 @@ class User
 {
     /**
      * Name of user
-     * @var string
      */
     private string $name;
 
     /**
      * Name getter
-     * @return string
      */
     public function getName(): string
     {
@@ -697,8 +680,6 @@ class Order
 
     /**
      * Order id setter
-     * @param int $id
-     * @return Order
      */
     public function setId(int $id): Order
     {
@@ -709,7 +690,6 @@ class Order
 
     /**
      * Order id getter
-     * @return int
      */
     public function getId(): int
     {
@@ -785,8 +765,6 @@ class Order
 
     /**
      * Order id setter
-     * @param int $id
-     * @return Order
      */
     public function setId(int $id): Order
     {
@@ -797,8 +775,6 @@ class Order
 
     /**
      * Order title setter
-     * @param string $title
-     * @return Order
      */
     public function setTitle(string $title): Order
     {
@@ -819,7 +795,6 @@ class Order
     
     /**
      * Order id getter
-     * @return int
      */
     public function getId(): int
     {
@@ -836,7 +811,6 @@ class Order
    
    /**
     * Order id getter
-    * @return int
     */
    public function getId(): int
    {
@@ -951,8 +925,6 @@ class PaymentOrder
 
     /**
      * PaymentOrder constructor.
-     * @param PaymentService $paymentService
-     * @param OrderRepository $orderRepository
      */
     public function __construct(PaymentService $paymentService, OrderRepository $orderRepository)
     {
@@ -961,8 +933,6 @@ class PaymentOrder
     }
 
     /**
-     * @param int $id
-     * @return bool
      * @throws OrderAlreadyPayed
      * @throws OrderException
      * @throws OrderNotFoundException
@@ -1110,19 +1080,18 @@ class Order
 {
     /**
      * Order id
-     * @var int
      */
     private int $id;
 
     /**
      * Order title
-     * @var string
      */
     private string $title;
 }
 ```
 
-- РЕКОМЕНДУЕТСЯ документировать методы класса. Документация ДОЛЖНА содержать краткое описание метода, список принимаемых аргументов, список выбрасываемых исключений и тип возвращаемого значения
+- РЕКОМЕНДУЕТСЯ документировать методы класса. Документация ДОЛЖНА содержать краткое описание метода, список 
+  выбрасываемых исключений и при необходимости список возвращаемых значений.
 
 Пример:
 ```php
@@ -1130,8 +1099,7 @@ class Order
 {
     /**
      * Order id setter
-     * @param int $id
-     * @return Order
+     *
      * @throws \InvalidArgumentException
      */
     public function setId(int $id): Order
@@ -1189,16 +1157,16 @@ class Order
 {
     /**
      * Current balance
+     *
      * @var float
      */
     private float $balance;
 
     /**
      * Sends money between addresses
-     * @param string $from
-     * @param string $to
-     * @param float $amount
+     *
      * @return bool
+     *
      * @throws \InvalidArgumentException
      * @throws InvalidAmountException
      */
