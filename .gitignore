@@ -1,0 +1,8 @@
+.idea/
+vendor/
+.php-cs-fixer.cache
+.php-cs-fixer.dist.php
+php-cs-fixer.phar
+composer.phar
+composer.lock
+php-cs-fixer
