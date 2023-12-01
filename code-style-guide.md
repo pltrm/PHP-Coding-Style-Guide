@@ -1090,27 +1090,51 @@ class Order
 }
 ```
 
-- РЕКОМЕНДУЕТСЯ документировать методы класса. Документация ДОЛЖНА содержать краткое описание метода, список 
-  выбрасываемых исключений и при необходимости список возвращаемых значений.
+- Документация ДОЛЖНА содержать список выбрасываемых исключений. РЕКОМЕНДУЕТСЯ краткое описание метода. Документация ДОЛЖНА содержать список аргументов и возвращаемых значений с указанием типа в случае если требуется добавить описание этим значениям или требуется специфические типы данных.
 
-Пример:
+Пример, когда не нужно указывать аннотации:
 ```php
-class Order
+class OrderRepository
+{
+    public function getById(int $id): Order
+    {
+        // ...
+    }
+}
+```
+
+Если мы хотим добавить смысла в параметры, то добавляем к ним комментарии.
+**Это утрированный пример. Так делать не надо!**
+```php
+class OrderRepository
 {
     /**
-     * Order id setter
+     * Get Order by id.
      *
-     * @throws \InvalidArgumentException
+     * @param int $id The order id we want to find
+     *
+     * @throws NotFoundException Throws exception if the order is not found by ID
+     *
+     * @return Order Return found Order
      */
-    public function setId(int $id): Order
+    public function getById(int $id): Order
     {
-        if ($id > 10) {
-            throw new \InvalidArgumentException('Order is does not correct');
-        }
-        
-        $this->id = $id;
-        
-        return $this;
+        // ...
+    }
+}
+
+```
+Если мы хотим вернуть специфичный тип данных такие как дженерики, типизированные массивы и т.д..
+https://phpstan.org/writing-php-code/phpdoc-types
+```php
+class OrderRepository
+{
+    /**
+     * @return Order[]
+     */
+    public function findByIds(int $id): array
+    {
+        // ...
     }
 }
 ```
