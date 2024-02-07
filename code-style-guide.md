@@ -1054,44 +1054,51 @@ class PaymentOrder
 
 ### Работа с массивами <a name="arrays"></a>
 - Массивы ДОЛЖНЫ определяться при помощи конструкции `[]`, использование конструкции `array()` НЕДОПУСТИМО.
-- Во всех уместных случаях вместо `foreach` РЕКОМЕНДУЕТСЯ использовать соответствующие методы обработки массивов
+- Во всех уместных случаях замыканий вместо `function` СЛЕДУЕТ использовать краткую форму `fn`.
+- Если внутри скоупа замыкания не используется `$this`, то следует использовать `static fn` или `static function` (это заметно снижает потребление памяти).
+- Не СЛЕДУЕТ использовать `array_map` вместо `foreach`, поскольку через замыкание код выполняется медленнее.
+- Не СЛЕДУЕТ использовать `array_push` вместо `$array[] = ...`, .т.к. функция работает медленнее почти в 2 раза.
 
 Пример 1:
 ```php
-$identifiers = [];
-foreach ($books as $book) {
-	$identifiers[] = $book->id;
+$longTitleLength = 20;
+$bookMapper = function($book) use ($longTitleLength)
+{
+	return strlen($book->title) > longTitleLength;
 }
+
+$longTitles = array_filter($bookMapper, $books);
 ```
 
 Отрефакторенный пример 1:
 ```php
-$bookMapper = function($book)
-{
-	return $book->id;
-}
-
-$identifiers = array_map($bookMapper, $books);
+$longTitleLength = 20;
+$longTitles = array_filter(static fn($book) => strlen($book->title) > $longTitleLength, $books);
 ```
 
 Пример 2:
 ```php
-$activeBooks = [];
-foreach($books as $book) {
-	if ($book->active)	{
-		$activeBooks[] = $book;
-	}
+$array = [1, 2, 3, 4];
+function doubleIt($value)
+{
+    return 2 * $value;
 }
+
+$newData = array_map('doubleIt', $array);
 ```
 
 Отрефакторенный пример 2:
 ```php
-$bookFilter = function(Book $book)
+$array = [1, 2, 3, 4];
+$newData = [];
+function doubleIt($value)
 {
-    return $book->active;
+    return 2 * $value;
 }
 
-$activeBooks  = array_filter($books, $bookFilter);
+foreach ($array as $number) {
+	$newData[] = doubleIt($number);
+}
 ```
 
 - При инициализации массива, каждый элемент массива ДОЛЖЕН быть на новой строке. НЕОБХОДИМО добавлять запятую в конце каждой строки многострочного массива (даже после последней)
