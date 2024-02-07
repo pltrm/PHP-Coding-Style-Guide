@@ -6,7 +6,7 @@
 («REQUIRED»), «НУЖНО» («SHALL»), «НЕ ПОЗВОЛЯЕТСЯ» («SHALL NOT»), «СЛЕДУЕТ»
 («SHOULD»), «НЕ СЛЕДУЕТ» («SHOULD NOT»), «РЕКОМЕНДУЕТСЯ» («RECOMMENDED»),
 «ВОЗМОЖНО» («MAY») и «НЕОБЯЗАТЕЛЬНО» («OPTIONAL»)
-в этом документе должны расцениваться так, как описано в [RFC 2119](http://rfc2.ru/2119.rfc).
+в этом документе должны расцениваться так, как описано в [RFC 2119](https://rfc.com.ru/rfc2119.htm).
 
 ## Содержание
 - [Общие требования](#general)
@@ -242,7 +242,7 @@ $newMessageCount = 3;
 ```php
 $isPopupOpen = true;
 $hasUpperLetters = true;
-$containObject = false;
+$canDelete = true;
 $shouldUpdate = false;
 $disabled = true;
 ```
