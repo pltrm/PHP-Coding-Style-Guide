@@ -13,7 +13,7 @@ return [
     'no_short_bool_cast' => true,
     'protected_to_private' => true,
     'self_static_accessor' => true,
-    'simplified_if_return' => true,
+    'simplified_if_return' => false, // Правило хорошее, но реализация плохая. Создает кучу мусора в коде
     'combine_nested_dirname' => true,
     'implode_call' => true,
     'lambda_not_used_import' => true,
