@@ -26,5 +26,8 @@ return [
     //'new_with_parentheses' => ['named_class' => false, 'anonymous_class' => false], // не поддерживается в старой версии php-cs-fixer
     'object_operator_without_whitespace' => true,
     'no_superfluous_phpdoc_tags' => true,
-    'array_syntax' => 'short',
+    'array_syntax' => [
+        'syntax' => 'short',
+    ],
+    'no_empty_comment' => true,
 ];

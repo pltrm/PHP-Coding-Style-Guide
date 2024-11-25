@@ -1,12 +1,11 @@
 {
     "name": "ba/php-cs",
     "description": "Brand Analytics php Code Style",
-    "keywords": ["php-cs-fixer"],
-    "homepage": "https://github.com/greevex/PHP-Coding-Style-Guide/blob/master/code-style-guide.md",
+    "keywords": ["php-cs", "php-cs-fixer"],
     "type": "library",
     "license": "MIT",
     "require": {
-        "friendsofphp/php-cs-fixer": "=3.4.0"
+        "friendsofphp/php-cs-fixer": "~3.4"
     },
     "autoload": {
         "files": [
