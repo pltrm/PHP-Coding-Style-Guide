@@ -19,17 +19,22 @@ Add the file `.php-cs-fixer.dist.php` to the root folder of the project:
 use PhpCsFixer\Finder;
 use function BACodeStyle\styles;
 
-$finder = (new Finder)
-    ->in([
-        __DIR__.'/src'
-    ])
-;
+$finder = (new Finder())->in([
+    __DIR__.'/src'
+]);
 
 $config = styles($finder);
 
 return $config
     ->setUsingCache(true)
     ->setCacheFile(__DIR__.'/.php-cs-fixer.cache');
+```
+
+Add PHP-CS-Fixer temporary files to git ignore (`.gitignore`):
+
+```diff
++.php-cs-fixer.php
++.php-cs-fixer.cache
 ```
 
 Run fixer:
